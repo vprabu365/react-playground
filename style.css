@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #282D35;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    background: #21222A;
+    height: 85px;
+}
+
+.logo {
+    padding: 25px 25px;
+    height: 40px;
+    width: 50px;
+}
+
+.logo2 {
+    height: 500px;
+    width: 200px;
+    background-color: #282D35;
+    /* position: absolute;
+    right: -9.13%;
+    top: 20.65%; */
+    /* height: 422px;
+    width: 551px; */
+    border: none;
+}
+
+.navbar>h3,
+.navbar>h4 {
+    padding: 10px;
+}
+
+.navbar>h3 {
+    margin-left: -25px;
+    color: #61DAFB;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.navbar>h4 {
+    margin-left: auto;
+    color: #DEEBF8;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.mainContent {
+    padding: 55px 27px;
+    background-image: url("./images/react.svg");
+    background-repeat: no-repeat;
+    background-position: 110% center;
+    background-size: 400px;
+}
+
+.mainContent>h1 {
+    padding: 20px 27px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 39px;
+    letter-spacing: -0.05em;
+}
+
+.list--items {
+    line-height: 45px;
+    padding: 0px 65px;
+}
+
+.list--items>li {
+    font-size: 15px;
+    font-weight: 20px;
+    color: #FFFFFF;
+    font-weight: 400;
+
+}
+
+.list--items>li::marker {
+    color: #61DAFB;
+    font-size: 1.4rem;
+
+}

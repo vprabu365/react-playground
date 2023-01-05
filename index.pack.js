@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,9 +264,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(11);
+  module.exports = __webpack_require__(13);
 } else {
-  module.exports = __webpack_require__(10);
+  module.exports = __webpack_require__(12);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -376,9 +376,9 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
+  module.exports = __webpack_require__(17);
 } else {
-  module.exports = __webpack_require__(14);
+  module.exports = __webpack_require__(16);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -399,22 +399,27 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Main = __webpack_require__(17);
+var _Main = __webpack_require__(8);
 
 var _Main2 = _interopRequireDefault(_Main);
 
-var _Nav = __webpack_require__(6);
+var _Header = __webpack_require__(7);
 
-var _Nav2 = _interopRequireDefault(_Nav);
+var _Header2 = _interopRequireDefault(_Header);
+
+var _Footer = __webpack_require__(6);
+
+var _Footer2 = _interopRequireDefault(_Footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
     return _react2.default.createElement(
         "div",
-        null,
-        _react2.default.createElement(_Nav2.default, null),
-        _react2.default.createElement(_Main2.default, null)
+        { className: "main--section" },
+        _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(_Main2.default, null),
+        _react2.default.createElement(_Footer2.default, null)
     );
 }
 
@@ -457,9 +462,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(9);
+  module.exports = __webpack_require__(11);
 } else {
-  module.exports = __webpack_require__(8);
+  module.exports = __webpack_require__(10);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -474,7 +479,7 @@ if (process.env.NODE_ENV === 'production') {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = Nav;
+exports.default = Footer;
 
 var _react = __webpack_require__(1);
 
@@ -482,30 +487,121 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Nav() {
+function Footer() {
     return _react2.default.createElement(
-        "header",
-        null,
-        _react2.default.createElement(
-            "nav",
-            { className: "navbar" },
-            _react2.default.createElement("img", { className: "logo", src: "../images/logo.png" }),
-            _react2.default.createElement(
-                "h3",
-                null,
-                "ReactFacts"
-            ),
-            _react2.default.createElement(
-                "h4",
-                null,
-                "React Course - Project 1"
-            )
-        )
+        "footer",
+        { className: "footer" },
+        _react2.default.createElement("img", { className: "twitter", src: "../images/twitter.png" }),
+        _react2.default.createElement("img", { className: "facebook", src: "../images/fb.png" }),
+        _react2.default.createElement("img", { className: "instagram", src: "../images/insta.png" }),
+        _react2.default.createElement("img", { className: "github", src: "../images/git.png" })
     );
 }
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = Header;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Header() {
+    return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement("img", { className: "profile--avatar", src: "../images/avatar.jpeg" })
+    );
+}
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = Main;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Main() {
+    return _react2.default.createElement(
+        "main",
+        null,
+        _react2.default.createElement(
+            "h2",
+            { className: "name" },
+            "Veda Vyas Prabu"
+        ),
+        _react2.default.createElement(
+            "span",
+            { className: "title" },
+            "Frontend Developer"
+        ),
+        _react2.default.createElement(
+            "h4",
+            { className: "website" },
+            "vyas365@gmail.com"
+        ),
+        _react2.default.createElement(
+            "div",
+            { className: "action" },
+            _react2.default.createElement(
+                "button",
+                { className: "email" },
+                _react2.default.createElement("img", { className: "email--icon", src: "../images/write-email-envelope-button.png" }),
+                "Email"
+            ),
+            _react2.default.createElement(
+                "button",
+                { className: "office" },
+                _react2.default.createElement("img", { className: "office--icon", src: "../images/link.png" }),
+                "Linkedin"
+            )
+        ),
+        _react2.default.createElement(
+            "h2",
+            { className: "about" },
+            "About"
+        ),
+        _react2.default.createElement(
+            "span",
+            { className: "about--content" },
+            "I am a frontend developer with a particular interest in making things simple and automating daily tasks. I try to keep up with security and best practices, and am always looking for new things to learn."
+        ),
+        _react2.default.createElement(
+            "h2",
+            { className: "interests" },
+            "Interests"
+        ),
+        _react2.default.createElement(
+            "span",
+            { className: "interest--content" },
+            "Food expert. Music scholar. Reader. Internet fanatic. Bacon buff. Entrepreneur. Travel geek. Pop culture ninja. Coffee fanatic."
+        )
+    );
+}
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -528,7 +624,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById("root"));
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -550,7 +646,7 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
 var Scheduler = __webpack_require__(3);
-var tracing = __webpack_require__(16);
+var tracing = __webpack_require__(18);
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
@@ -26798,7 +26894,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27102,7 +27198,7 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Er
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29443,7 +29539,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29473,7 +29569,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29828,7 +29924,7 @@ exports.unstable_wrap = unstable_wrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29844,7 +29940,7 @@ var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unst
 
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30498,7 +30594,7 @@ exports.unstable_wrapCallback = unstable_wrapCallback;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30525,68 +30621,19 @@ exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(13);
+  module.exports = __webpack_require__(15);
 } else {
-  module.exports = __webpack_require__(12);
+  module.exports = __webpack_require__(14);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Main;
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Main() {
-    return _react2.default.createElement(
-        "main",
-        { className: "mainContent" },
-        _react2.default.createElement(
-            "h1",
-            null,
-            "Fun facts about React"
-        ),
-        _react2.default.createElement(
-            "ul",
-            { className: "list--items" },
-            _react2.default.createElement(
-                "li",
-                null,
-                "Was created in 2013"
-            ),
-            _react2.default.createElement(
-                "li",
-                null,
-                "It is maintained by Facebook"
-            ),
-            _react2.default.createElement(
-                "li",
-                null,
-                "Has well over 100k stars on Github"
-            )
-        )
-    );
-}
 
 /***/ })
 /******/ ]);

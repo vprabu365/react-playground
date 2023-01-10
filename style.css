@@ -1,74 +1,89 @@
 body {
     margin: 0;
     font-family: 'Poppins';
-
 }
 
 .navbar {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 20px 40px;
     background: #FFFFFF;
+    height: 30px;
     box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
 }
 
-.abnb-logo {
-    padding: 15px 40px;
+.abnb--icon {
     height: 45px;
 }
 
-.hero {
-    display: flex;
-    flex-direction: column;
-    padding: 30px 30px;
-}
-
 .hero--section {
-    max-width: 700px;
-    align-self: center;
-    margin-bottom: 50px;
+    margin: 30px 50px;
 }
 
-.online--experiences {
-    margin-bottom: 20px;
+.hero--image {
+    display: flex;
+    margin: 20px auto;
+    height: 350px;
 }
 
-.activities {
-    margin-top: 0;
+.hero--headline {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.hero--content {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    width: 34em;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 10px 20px;
 }
 
 .card--section {
-    padding: 20px 35px;
+    padding: 0px 50px;
 }
 
 .card--image {
-    border-radius: 9px;
-    width: 200px;
-    height: 250px;
+    display: flex;
+    height: 300px;
+    width: 250px;
+    border-radius: 15px;
+    padding-bottom: 10px;
 }
 
 .card--stats {
     display: flex;
     align-items: center;
-    margin-top: 20px;
-}
-
-.star--icon {
-    margin-right: 2px;
-    height: 14px;
-}
-
-.card--ratings {
-    margin-right: 2px;
+    padding-right: 14px;
+    padding-bottom: 10px;
+    gap: 5px;
+    font-style: normal;
+    font-weight: 300;
     font-size: 16px;
 }
 
-.reviews {
-    margin-right: 2px;
+.star--icon {
+    height: 20px;
 }
 
-
-.cost {
-   /* display: inline; 
-    align-items: center; */
+.lesson--title {
+    font-size: 16px;
     font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 300;
+    width: 15em;
+    word-wrap: break-word;
+    margin-bottom: 0;
+}
+
+.lesson-cost {
+    display: flex;
+    align-items: center;
+    padding-bottom: 40px;
 }

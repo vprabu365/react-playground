@@ -68,21 +68,6 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(14);
-} else {
-  module.exports = __webpack_require__(13);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -272,6 +257,21 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(14);
+} else {
+  module.exports = __webpack_require__(13);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -381,7 +381,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(17);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 4 */
@@ -395,7 +395,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = App;
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -407,35 +407,41 @@ var _Hero = __webpack_require__(8);
 
 var _Hero2 = _interopRequireDefault(_Hero);
 
-var _Card = __webpack_require__(6);
+var _Card = __webpack_require__(7);
 
 var _Card2 = _interopRequireDefault(_Card);
 
-var _cardData = __webpack_require__(20);
+var _cardData = __webpack_require__(6);
 
 var _cardData2 = _interopRequireDefault(_cardData);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
+    var cards = _cardData2.default.map(function (card) {
+        if (card.country || card.liveCount) return _react2.default.createElement(_Card2.default, {
+            key: card.id,
+            img: card.img,
+            ratings: card.ratings,
+            reviews: card.reviewCount,
+            country: card.country,
+            lessonTitle: card.lessonTitle,
+            cost: card.cost,
+            liveCount: card.liveCount
+        });
+    });
+
     return _react2.default.createElement(
         "div",
         null,
         _react2.default.createElement(_Nav2.default, null),
-        _react2.default.createElement(_Hero2.default, null),
+        _cardData2.default.map(function (card) {
+            if (card.img === "./images/grid.png") return _react2.default.createElement(_Hero2.default, { key: card.id, img: card.img });
+        }),
         _react2.default.createElement(
             "div",
             { className: "cards" },
-            _cardData2.default.map(function (card) {
-                return _react2.default.createElement(_Card2.default, {
-                    img: card.img,
-                    ratings: card.ratings,
-                    reviews: card.reviewCount,
-                    country: card.country,
-                    lessonTitle: card.lessonTitle,
-                    cost: card.cost
-                });
-            })
+            cards
         )
     );
 }
@@ -484,7 +490,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(11);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 6 */
@@ -496,9 +502,51 @@ if (process.env.NODE_ENV === 'production') {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.default = [{
+    id: 1,
+    img: "kat.jpeg",
+    ratings: 4.2,
+    reviewCount: 12,
+    country: "USA",
+    lessonTitle: "Life lessons with Katie Zaferes",
+    cost: "$120",
+    liveCount: 0
+}, {
+    id: 2,
+    img: "rajni.jpeg",
+    ratings: 4.8,
+    reviewCount: 16,
+    country: "India",
+    lessonTitle: "Acting lessons with Superstar",
+    cost: "$500",
+    liveCount: 1
+}, {
+    id: 3,
+    img: "messi.jpeg",
+    ratings: 4.9,
+    reviewCount: 123,
+    country: "France",
+    lessonTitle: "Masterclass with world cup winner Leo Messi",
+    cost: "$1000",
+    liveCount: 1
+}, {
+    id: 4,
+    img: "./images/grid.png"
+}];
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 exports.default = Card;
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -506,6 +554,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Card(_ref) {
     var img = _ref.img,
+        liveCount = _ref.liveCount,
         ratings = _ref.ratings,
         reviews = _ref.reviews,
         country = _ref.country,
@@ -515,7 +564,16 @@ function Card(_ref) {
     return _react2.default.createElement(
         "div",
         { className: "card--section" },
-        _react2.default.createElement("img", { src: img, className: "card--image" }),
+        _react2.default.createElement(
+            "div",
+            { className: "badge--container" },
+            _react2.default.createElement("img", { src: "../images/" + img, className: "card--image" }),
+            liveCount === 1 && _react2.default.createElement(
+                "div",
+                { className: "sold--badge" },
+                "SOLD OUT"
+            )
+        ),
         _react2.default.createElement(
             "div",
             { className: "card--stats" },
@@ -563,7 +621,6 @@ function Card(_ref) {
 }
 
 /***/ }),
-/* 7 */,
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -575,17 +632,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Hero;
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Hero() {
+function Hero(_ref) {
+    var img = _ref.img;
+
     return _react2.default.createElement(
         "section",
         { className: "hero--section" },
-        _react2.default.createElement("img", { src: "../images/grid.png", className: "hero--image" }),
+        _react2.default.createElement("img", { src: img, className: "hero--image" }),
         _react2.default.createElement(
             "h1",
             { className: "hero--headline" },
@@ -611,7 +670,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Nav;
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -632,7 +691,7 @@ function Nav() {
 "use strict";
 
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -668,7 +727,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(0);
+var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
 var Scheduler = __webpack_require__(3);
 var tracing = __webpack_require__(19);
@@ -26916,7 +26975,7 @@ exports.version = ReactVersion;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 12 */
@@ -26934,7 +26993,7 @@ exports.version = ReactVersion;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),m=__webpack_require__(2),r=__webpack_require__(3);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
+var aa=__webpack_require__(1),m=__webpack_require__(2),r=__webpack_require__(3);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
 function ea(a,b){ca[a]=b;for(a=0;a<b.length;a++)ba.add(b[a])}
 var fa=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ha=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,ia=Object.prototype.hasOwnProperty,
 ja={},ka={};function la(a){if(ia.call(ka,a))return!0;if(ia.call(ja,a))return!1;if(ha.test(a))return ka[a]=!0;ja[a]=!0;return!1}function ma(a,b,c,d){if(null!==c&&0===c.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(d)return!1;if(null!==c)return!c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
@@ -29561,7 +29620,7 @@ exports.version = ReactVersion;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 14 */
@@ -29946,7 +30005,7 @@ exports.unstable_wrap = unstable_wrap;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 16 */
@@ -30616,7 +30675,7 @@ exports.unstable_wrapCallback = unstable_wrapCallback;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 18 */
@@ -30658,40 +30717,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(15);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = [{
-    img: "./images/kat.jpeg",
-    ratings: 4.2,
-    reviewCount: 12,
-    country: "USA",
-    lessonTitle: "Life lessons with Katie Zaferes",
-    cost: "$120"
-}, {
-    img: "./images/rajni.jpeg",
-    ratings: 4.8,
-    reviewCount: 16,
-    country: "India",
-    lessonTitle: "Acting lessons with Superstar",
-    cost: "$500"
-}, {
-    img: "./images/messi.jpeg",
-    ratings: 4.9,
-    reviewCount: 123,
-    country: "France",
-    lessonTitle: "Masterclass with world cup winner Leo Messi",
-    cost: "$1000"
-}];
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 /******/ ]);

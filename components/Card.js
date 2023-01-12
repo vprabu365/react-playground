@@ -1,9 +1,13 @@
 import React from "react";
 
-export default function Card({ img, ratings, reviews, country, lessonTitle, cost }) {
+export default function Card({ img, liveCount, ratings, reviews, country, lessonTitle, cost }) {
     return (
-        <div className="card--section">
-            <img src={img} className="card--image" />
+        < div className="card--section" >
+            <div className="badge--container">
+                <img src={`../images/${img}`} className="card--image" />
+                {/* {liveCount === 1 && <img src="../images/sold.png" className="soldout--icon" />} */}
+                {liveCount === 1 && <div className="sold--badge">SOLD OUT</div>}
+            </div>
             <div className="card--stats">
                 <img src="../images/star.png" className="star--icon" />
                 <span>{ratings}</span>

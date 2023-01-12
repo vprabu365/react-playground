@@ -1,12 +1,21 @@
 import React from "react";
 
 export default function Card({ img, liveCount, ratings, reviews, country, lessonTitle, cost }) {
+    let badgeText
+    if (liveCount === 0) {
+        badgeText = "SOLD OUT"
+    }
+    else if (country === "Online") {
+        badgeText = "ONLINE"
+    }
+
     return (
         < div className="card--section" >
             <div className="badge--container">
                 <img src={`../images/${img}`} className="card--image" />
-                {/* {liveCount === 1 && <img src="../images/sold.png" className="soldout--icon" />} */}
-                {liveCount === 1 && <div className="sold--badge">SOLD OUT</div>}
+
+                {badgeText && <div className="sold--badge">{badgeText}</div>}
+                {console.log(badgeText)}
             </div>
             <div className="card--stats">
                 <img src="../images/star.png" className="star--icon" />

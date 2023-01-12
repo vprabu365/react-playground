@@ -516,7 +516,7 @@ exports.default = [{
     img: "rajni.jpeg",
     ratings: 4.8,
     reviewCount: 16,
-    country: "India",
+    country: "Online",
     lessonTitle: "Acting lessons with Superstar",
     cost: "$500",
     liveCount: 1
@@ -561,6 +561,13 @@ function Card(_ref) {
         lessonTitle = _ref.lessonTitle,
         cost = _ref.cost;
 
+    var badgeText = void 0;
+    if (liveCount === 0) {
+        badgeText = "SOLD OUT";
+    } else if (country === "Online") {
+        badgeText = "ONLINE";
+    }
+
     return _react2.default.createElement(
         "div",
         { className: "card--section" },
@@ -568,11 +575,12 @@ function Card(_ref) {
             "div",
             { className: "badge--container" },
             _react2.default.createElement("img", { src: "../images/" + img, className: "card--image" }),
-            liveCount === 1 && _react2.default.createElement(
+            badgeText && _react2.default.createElement(
                 "div",
                 { className: "sold--badge" },
-                "SOLD OUT"
-            )
+                badgeText
+            ),
+            console.log(badgeText)
         ),
         _react2.default.createElement(
             "div",

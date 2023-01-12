@@ -7,17 +7,17 @@ export default [
         country: "USA",
         lessonTitle: "Life lessons with Katie Zaferes",
         cost: "$120",
-        liveCount: 0
+        liveCount: 0,
     },
     {
         id: 2,
         img: "rajni.jpeg",
         ratings: 4.8,
         reviewCount: 16,
-        country: "India",
+        country: "Online",
         lessonTitle: "Acting lessons with Superstar",
         cost: "$500",
-        liveCount: 1
+        liveCount: 1,
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ export default [
         country: "France",
         lessonTitle: "Masterclass with world cup winner Leo Messi",
         cost: "$1000",
-        liveCount: 1
+        liveCount: 1,
     },
     {
         id: 4,

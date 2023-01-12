@@ -24,7 +24,7 @@ export default function Card({ img, liveCount, ratings, reviews, country, lesson
                 <span>{country}</span>
             </div>
             <p className="lesson--title">{lessonTitle}</p>
-            <span className="lesson-cost"><strong>From {cost}</strong> <p> / person</p></span>
+            <span className="lesson-cost"><span className="bold">From {cost}</span> /person</span>
         </div >
     )
 }

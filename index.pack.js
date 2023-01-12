@@ -613,17 +613,12 @@ function Card(_ref) {
             "span",
             { className: "lesson-cost" },
             _react2.default.createElement(
-                "strong",
-                null,
+                "span",
+                { className: "bold" },
                 "From ",
                 cost
             ),
-            " ",
-            _react2.default.createElement(
-                "p",
-                null,
-                " / person"
-            )
+            " /person"
         )
     );
 }

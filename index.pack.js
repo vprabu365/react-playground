@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,21 +261,6 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(14);
-} else {
-  module.exports = __webpack_require__(13);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /*
 object-assign
 (c) Sindre Sorhus
@@ -369,6 +354,21 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(10);
+} else {
+  module.exports = __webpack_require__(9);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -376,9 +376,9 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(18);
+  module.exports = __webpack_require__(14);
 } else {
-  module.exports = __webpack_require__(17);
+  module.exports = __webpack_require__(13);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -393,52 +393,29 @@ if (process.env.NODE_ENV === 'production') {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 exports.default = App;
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Nav = __webpack_require__(9);
+var _Nav = __webpack_require__(16);
 
 var _Nav2 = _interopRequireDefault(_Nav);
 
-var _Hero = __webpack_require__(8);
+var _Travel = __webpack_require__(17);
 
-var _Hero2 = _interopRequireDefault(_Hero);
-
-var _Card = __webpack_require__(7);
-
-var _Card2 = _interopRequireDefault(_Card);
-
-var _cardData = __webpack_require__(6);
-
-var _cardData2 = _interopRequireDefault(_cardData);
+var _Travel2 = _interopRequireDefault(_Travel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-    var cards = _cardData2.default.map(function (card) {
-        if (card.country || card.liveCount) return _react2.default.createElement(_Card2.default, _extends({
-            key: card.id
-        }, card));
-    });
 
     return _react2.default.createElement(
         "div",
         null,
         _react2.default.createElement(_Nav2.default, null),
-        _cardData2.default.map(function (card) {
-            if (card.img === "./images/grid.png") return _react2.default.createElement(_Hero2.default, { key: card.id, img: card.img });
-        }),
-        _react2.default.createElement(
-            "div",
-            { className: "cards" },
-            cards
-        )
+        _react2.default.createElement(_Travel2.default, null)
     );
 }
 
@@ -481,9 +458,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(12);
+  module.exports = __webpack_require__(8);
 } else {
-  module.exports = __webpack_require__(11);
+  module.exports = __webpack_require__(7);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -495,194 +472,7 @@ if (process.env.NODE_ENV === 'production') {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = [{
-    id: 1,
-    img: "kat.jpeg",
-    ratings: 4.2,
-    reviewCount: 12,
-    country: "USA",
-    lessonTitle: "Life lessons with Katie Zaferes",
-    cost: "$120",
-    liveCount: 0
-}, {
-    id: 2,
-    img: "rajni.jpeg",
-    ratings: 4.8,
-    reviewCount: 16,
-    country: "Online",
-    lessonTitle: "Acting lessons with Superstar",
-    cost: "$500",
-    liveCount: 1
-}, {
-    id: 3,
-    img: "messi.jpeg",
-    ratings: 4.9,
-    reviewCount: 123,
-    country: "France",
-    lessonTitle: "Masterclass with world cup winner Leo Messi",
-    cost: "$1000",
-    liveCount: 1
-}, {
-    id: 4,
-    img: "./images/grid.png"
-}];
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = props;
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function props(props) {
-    console.log(props);
-    var badgeText = void 0;
-    if (props.liveCount === 0) {
-        badgeText = "SOLD OUT";
-    } else if (props.country === "Online") {
-        badgeText = "ONLINE";
-    }
-
-    return _react2.default.createElement(
-        "div",
-        { className: "props--section" },
-        _react2.default.createElement(
-            "div",
-            { className: "badge--container" },
-            _react2.default.createElement("img", { src: "../images/" + props.img, className: "props--image" }),
-            badgeText && _react2.default.createElement(
-                "div",
-                { className: "sold--badge" },
-                badgeText
-            )
-        ),
-        _react2.default.createElement(
-            "div",
-            { className: "props--stats" },
-            _react2.default.createElement("img", { src: "../images/star.png", className: "star--icon" }),
-            _react2.default.createElement(
-                "span",
-                null,
-                props.ratings
-            ),
-            _react2.default.createElement(
-                "span",
-                null,
-                " (",
-                props.reviewCount,
-                ") \u2022 "
-            ),
-            _react2.default.createElement(
-                "span",
-                null,
-                props.country
-            )
-        ),
-        _react2.default.createElement(
-            "p",
-            { className: "lesson--title" },
-            props.lessonTitle
-        ),
-        _react2.default.createElement(
-            "span",
-            { className: "lesson-cost" },
-            _react2.default.createElement(
-                "span",
-                { className: "bold" },
-                "From ",
-                props.cost
-            ),
-            " /person"
-        )
-    );
-}
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Hero;
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Hero(_ref) {
-    var img = _ref.img;
-
-    return _react2.default.createElement(
-        "section",
-        { className: "hero--section" },
-        _react2.default.createElement("img", { src: img, className: "hero--image" }),
-        _react2.default.createElement(
-            "h1",
-            { className: "hero--headline" },
-            "Online Experiences"
-        ),
-        _react2.default.createElement(
-            "p",
-            { className: "hero--content" },
-            "Join unique interactive activities led by one-of-a-kind hosts\u2014all without leaving home."
-        )
-    );
-}
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Nav;
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Nav() {
-    return _react2.default.createElement(
-        "nav",
-        { className: "navbar" },
-        _react2.default.createElement("img", { src: "../images/abnb.png", className: "abnb--icon" })
-    );
-}
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -699,7 +489,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById("root"));
 
 /***/ }),
-/* 11 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -718,10 +508,10 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(1);
-var _assign = __webpack_require__(2);
+var React = __webpack_require__(2);
+var _assign = __webpack_require__(1);
 var Scheduler = __webpack_require__(3);
-var tracing = __webpack_require__(19);
+var tracing = __webpack_require__(15);
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
@@ -26969,7 +26759,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26984,7 +26774,7 @@ exports.version = ReactVersion;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),m=__webpack_require__(2),r=__webpack_require__(3);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
+var aa=__webpack_require__(2),m=__webpack_require__(1),r=__webpack_require__(3);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
 function ea(a,b){ca[a]=b;for(a=0;a<b.length;a++)ba.add(b[a])}
 var fa=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ha=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,ia=Object.prototype.hasOwnProperty,
 ja={},ka={};function la(a){if(ia.call(ka,a))return!0;if(ia.call(ja,a))return!1;if(ha.test(a))return ka[a]=!0;ja[a]=!0;return!1}function ma(a,b,c,d){if(null!==c&&0===c.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(d)return!1;if(null!==c)return!c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
@@ -27273,7 +27063,7 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Er
 
 
 /***/ }),
-/* 13 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27292,7 +27082,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(2);
+var _assign = __webpack_require__(1);
 
 // TODO: this is special because it gets imported during build.
 var ReactVersion = '17.0.2';
@@ -29614,7 +29404,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 14 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29626,7 +29416,7 @@ exports.version = ReactVersion;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var l=__webpack_require__(2),n=60103,p=60106;exports.Fragment=60107;exports.StrictMode=60108;exports.Profiler=60114;var q=60109,r=60110,t=60112;exports.Suspense=60113;var u=60115,v=60116;
+var l=__webpack_require__(1),n=60103,p=60106;exports.Fragment=60107;exports.StrictMode=60108;exports.Profiler=60114;var q=60109,r=60110,t=60112;exports.Suspense=60113;var u=60115,v=60116;
 if("function"===typeof Symbol&&Symbol.for){var w=Symbol.for;n=w("react.element");p=w("react.portal");exports.Fragment=w("react.fragment");exports.StrictMode=w("react.strict_mode");exports.Profiler=w("react.profiler");q=w("react.provider");r=w("react.context");t=w("react.forward_ref");exports.Suspense=w("react.suspense");u=w("react.memo");v=w("react.lazy")}var x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){if(null===a||"object"!==typeof a)return null;a=x&&a[x]||a["@@iterator"];return"function"===typeof a?a:null}function z(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}
 var A={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},B={};function C(a,b,c){this.props=a;this.context=b;this.refs=B;this.updater=c||A}C.prototype.isReactComponent={};C.prototype.setState=function(a,b){if("object"!==typeof a&&"function"!==typeof a&&null!=a)throw Error(z(85));this.updater.enqueueSetState(this,a,b,"setState")};C.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
@@ -29644,7 +29434,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 15 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29999,7 +29789,7 @@ exports.unstable_wrap = unstable_wrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30015,7 +29805,7 @@ var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unst
 
 
 /***/ }),
-/* 17 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30669,7 +30459,7 @@ exports.unstable_wrapCallback = unstable_wrapCallback;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30696,19 +30486,80 @@ exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;
 
 
 /***/ }),
-/* 19 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(16);
+  module.exports = __webpack_require__(12);
 } else {
-  module.exports = __webpack_require__(15);
+  module.exports = __webpack_require__(11);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = Nav;
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Nav() {
+    return _react2.default.createElement(
+        "nav",
+        { className: "navbar" },
+        _react2.default.createElement("img", { src: "../images/globe.png", className: "globe--icon" }),
+        _react2.default.createElement(
+            "span",
+            { className: "headline--Text" },
+            "my travel journal."
+        )
+    );
+}
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = Travel;
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Travel() {
+    return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+            "h1",
+            null,
+            "Travel"
+        )
+    );
+}
 
 /***/ })
 /******/ ]);

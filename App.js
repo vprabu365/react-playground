@@ -9,13 +9,7 @@ export default function App() {
         if (card.country || card.liveCount)
             return <Card
                 key={card.id}
-                img={card.img}
-                ratings={card.ratings}
-                reviews={card.reviewCount}
-                country={card.country}
-                lessonTitle={card.lessonTitle}
-                cost={card.cost}
-                liveCount={card.liveCount}
+                {...card}
             />
     }
     )

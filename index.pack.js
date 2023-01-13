@@ -393,6 +393,9 @@ if (process.env.NODE_ENV === 'production') {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 exports.default = App;
 
 var _react = __webpack_require__(1);
@@ -419,16 +422,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function App() {
     var cards = _cardData2.default.map(function (card) {
-        if (card.country || card.liveCount) return _react2.default.createElement(_Card2.default, {
-            key: card.id,
-            img: card.img,
-            ratings: card.ratings,
-            reviews: card.reviewCount,
-            country: card.country,
-            lessonTitle: card.lessonTitle,
-            cost: card.cost,
-            liveCount: card.liveCount
-        });
+        if (card.country || card.liveCount) return _react2.default.createElement(_Card2.default, _extends({
+            key: card.id
+        }, card));
     });
 
     return _react2.default.createElement(
@@ -544,7 +540,7 @@ exports.default = [{
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = Card;
+exports.default = props;
 
 var _react = __webpack_require__(1);
 
@@ -552,62 +548,54 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Card(_ref) {
-    var img = _ref.img,
-        liveCount = _ref.liveCount,
-        ratings = _ref.ratings,
-        reviews = _ref.reviews,
-        country = _ref.country,
-        lessonTitle = _ref.lessonTitle,
-        cost = _ref.cost;
-
+function props(props) {
+    console.log(props);
     var badgeText = void 0;
-    if (liveCount === 0) {
+    if (props.liveCount === 0) {
         badgeText = "SOLD OUT";
-    } else if (country === "Online") {
+    } else if (props.country === "Online") {
         badgeText = "ONLINE";
     }
 
     return _react2.default.createElement(
         "div",
-        { className: "card--section" },
+        { className: "props--section" },
         _react2.default.createElement(
             "div",
             { className: "badge--container" },
-            _react2.default.createElement("img", { src: "../images/" + img, className: "card--image" }),
+            _react2.default.createElement("img", { src: "../images/" + props.img, className: "props--image" }),
             badgeText && _react2.default.createElement(
                 "div",
                 { className: "sold--badge" },
                 badgeText
-            ),
-            console.log(badgeText)
+            )
         ),
         _react2.default.createElement(
             "div",
-            { className: "card--stats" },
+            { className: "props--stats" },
             _react2.default.createElement("img", { src: "../images/star.png", className: "star--icon" }),
             _react2.default.createElement(
                 "span",
                 null,
-                ratings
+                props.ratings
             ),
             _react2.default.createElement(
                 "span",
                 null,
                 " (",
-                reviews,
+                props.reviewCount,
                 ") \u2022 "
             ),
             _react2.default.createElement(
                 "span",
                 null,
-                country
+                props.country
             )
         ),
         _react2.default.createElement(
             "p",
             { className: "lesson--title" },
-            lessonTitle
+            props.lessonTitle
         ),
         _react2.default.createElement(
             "span",
@@ -616,7 +604,7 @@ function Card(_ref) {
                 "span",
                 { className: "bold" },
                 "From ",
-                cost
+                props.cost
             ),
             " /person"
         )

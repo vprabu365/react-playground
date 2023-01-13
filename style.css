@@ -13,13 +13,9 @@ body {
 
 .globe--icon {
     height: 25px;
-    justify-content: center;
-    align-items: center;
 }
 
 .headline--Text {
-    justify-content: center;
-    align-items: center;
     color: #FFFFFF;
     font-style: normal;
     font-weight: 300;

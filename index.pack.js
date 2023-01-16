@@ -519,10 +519,49 @@ function Travel() {
         "div",
         null,
         _react2.default.createElement(
-            "h1",
-            null,
-            "Travel"
-        )
+            "div",
+            { className: "travel--mainContainer" },
+            _react2.default.createElement("img", { src: "https://source.unsplash.com/WLxQvbMyfas", className: "travel--image" }),
+            _react2.default.createElement(
+                "div",
+                { className: "country--information" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "country--headline" },
+                    _react2.default.createElement("img", { src: "../images/map.png", className: "earth--icon" }),
+                    _react2.default.createElement(
+                        "h6",
+                        { className: "country--name" },
+                        "JAPAN"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "googlemaps--link" },
+                        _react2.default.createElement(
+                            "u",
+                            null,
+                            "View on Google Maps"
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    "h1",
+                    { className: "travel--destination" },
+                    "Mount Fuji"
+                ),
+                _react2.default.createElement(
+                    "h6",
+                    { className: "travel--dates" },
+                    "12 Jan, 2021 - 24 Jan, 2021"
+                ),
+                _react2.default.createElement(
+                    "p",
+                    { className: "travel--description" },
+                    "Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists."
+                )
+            )
+        ),
+        _react2.default.createElement("hr", { className: "line--divider" })
     );
 }
 

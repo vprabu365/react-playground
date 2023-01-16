@@ -1,23 +1,25 @@
 import React from "react";
+import data from "../data";
+export default function Travel({ pic, countryName, mapLink, destinationPlace, dates, description }) {
 
-export default function Travel() {
+    const display = data.pop();
+    const result = display.id === 1
     return (
         <div>
             <div className="travel--mainContainer">
-                <img src="https://source.unsplash.com/WLxQvbMyfas" className="travel--image" />
+                <img src={pic} className="travel--image" />
                 <div className="country--information">
                     <div className="country--headline">
                         <img src="../images/map.png" className="earth--icon" />
-                        <h6 className="country--name">JAPAN</h6>
-                        <p className="googlemaps--link"><u>View on Google Maps</u></p>
+                        <h6 className="country--name">{countryName}</h6>
+                        <a className="googlemaps--link" href={mapLink}><u>View on Google Maps</u></a>
                     </div>
-                    <h1 className="travel--destination">Mount Fuji</h1>
-                    <h6 className="travel--dates">12 Jan, 2021 - 24 Jan, 2021</h6>
-                    <p className="travel--description">Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet).
-                        Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.</p>
+                    <h1 className="travel--destination">{destinationPlace}</h1>
+                    <h6 className="travel--dates">{dates}</h6>
+                    <p className="travel--description">{description}</p>
                 </div>
             </div >
-            <hr className="line--divider" />
+            {!result && <hr className="line--divider" />}
         </div>
     )
 }

@@ -490,7 +490,7 @@ function Nav() {
         _react2.default.createElement("img", { src: "../images/globe.png", className: "globe--icon" }),
         _react2.default.createElement(
             "span",
-            { className: "headline--Text" },
+            { className: "navbar--headline" },
             "my travel journal."
         )
     );

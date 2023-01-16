@@ -15,7 +15,7 @@ body {
     height: 25px;
 }
 
-.headline--Text {
+.navbar--headline {
     color: #FFFFFF;
     font-style: normal;
     font-weight: 300;
@@ -25,7 +25,7 @@ body {
 
 .travel--mainContainer {
     display: flex;
-    gap: 45px;
+    gap: 10px;
     padding: 50px;
 }
 
@@ -39,7 +39,6 @@ body {
 .country--headline {
     display: flex;
     align-items: center;
-    justify-content: left;
     gap: 5px;
     padding-top: 20px;
 }
@@ -67,12 +66,6 @@ body {
 .googlemaps--link {
     color: #918E9B;
     font-size: 13px;
-}
-
-.details {
-    display: flex;
-    flex-direction: column;
-
 }
 
 .travel--destination {

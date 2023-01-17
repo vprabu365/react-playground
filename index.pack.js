@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,9 +264,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(13);
+  module.exports = __webpack_require__(11);
 } else {
-  module.exports = __webpack_require__(12);
+  module.exports = __webpack_require__(10);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -376,9 +376,9 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(17);
+  module.exports = __webpack_require__(15);
 } else {
-  module.exports = __webpack_require__(16);
+  module.exports = __webpack_require__(14);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -393,9 +393,6 @@ if (process.env.NODE_ENV === 'production') {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 exports.default = App;
 
 var _react = __webpack_require__(1);
@@ -406,26 +403,13 @@ var _Nav = __webpack_require__(6);
 
 var _Nav2 = _interopRequireDefault(_Nav);
 
-var _Travel = __webpack_require__(7);
-
-var _Travel2 = _interopRequireDefault(_Travel);
-
-var _data = __webpack_require__(8);
-
-var _data2 = _interopRequireDefault(_data);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
     return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(_Nav2.default, null),
-        _data2.default.map(function (travel) {
-            return _react2.default.createElement(_Travel2.default, _extends({
-                key: travel.id
-            }, travel));
-        })
+        _react2.default.createElement(_Nav2.default, null)
     );
 }
 
@@ -468,9 +452,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(11);
+  module.exports = __webpack_require__(9);
 } else {
-  module.exports = __webpack_require__(10);
+  module.exports = __webpack_require__(8);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -495,138 +479,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Nav() {
     return _react2.default.createElement(
-        "nav",
+        "div",
         { className: "navbar" },
-        _react2.default.createElement("img", { src: "../images/globe.png", className: "globe--icon" }),
+        _react2.default.createElement("img", { src: "../images/troll.png", className: "meme--icon" }),
         _react2.default.createElement(
-            "span",
+            "h3",
             { className: "navbar--headline" },
-            "my travel journal."
+            "Meme Generator"
+        ),
+        _react2.default.createElement(
+            "h4",
+            { className: "course--title" },
+            "React Course - Project 3"
         )
     );
 }
 
 /***/ }),
 /* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Travel;
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _data = __webpack_require__(8);
-
-var _data2 = _interopRequireDefault(_data);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Travel(_ref) {
-    var pic = _ref.pic,
-        countryName = _ref.countryName,
-        mapLink = _ref.mapLink,
-        destinationPlace = _ref.destinationPlace,
-        dates = _ref.dates,
-        description = _ref.description;
-
-
-    var display = _data2.default.pop();
-    var result = display.id === 1;
-    return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(
-            "div",
-            { className: "travel--mainContainer" },
-            _react2.default.createElement("img", { src: pic, className: "travel--image" }),
-            _react2.default.createElement(
-                "div",
-                { className: "country--information" },
-                _react2.default.createElement(
-                    "div",
-                    { className: "country--headline" },
-                    _react2.default.createElement("img", { src: "../images/map.png", className: "earth--icon" }),
-                    _react2.default.createElement(
-                        "h6",
-                        { className: "country--name" },
-                        countryName
-                    ),
-                    _react2.default.createElement(
-                        "a",
-                        { className: "googlemaps--link", href: mapLink },
-                        _react2.default.createElement(
-                            "u",
-                            null,
-                            "View on Google Maps"
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    "h1",
-                    { className: "travel--destination" },
-                    destinationPlace
-                ),
-                _react2.default.createElement(
-                    "h6",
-                    { className: "travel--dates" },
-                    dates
-                ),
-                _react2.default.createElement(
-                    "p",
-                    { className: "travel--description" },
-                    description
-                )
-            )
-        ),
-        !result && _react2.default.createElement("hr", { className: "line--divider" })
-    );
-}
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = [{
-    id: 1,
-    pic: 'https://source.unsplash.com/WLxQvbMyfas',
-    countryName: 'JAPAN',
-    destinationPlace: 'Mount Fuji',
-    mapLink: 'https://www.google.com/maps?q=mount+fuji&rlz=1C5GCEM_enUS954US962&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiVmrf5hM38AhWUk4kEHS98DvIQ_AUoAnoECAEQBA',
-    dates: '12 Jan, 2021 - 24 Jan, 2021',
-    description: "Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet).Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists"
-}, {
-    id: 2,
-    pic: 'https://source.unsplash.com/JmuyB_LibRo',
-    countryName: 'AUSTRALIA',
-    destinationPlace: 'Sydney Opera House',
-    mapLink: 'https://www.google.com/maps?q=Sydney+Opera+House&ftid=0x6b12ae665e892fdd:0x3133f8d75a1ac251',
-    dates: '27 May, 2021 - 8 Jun, 2021',
-    description: "The Sydney Opera House is a multi-venue performing arts centre in Sydney. Located on the banks of the Sydney Harbour, it is often regarded as one of the 20th century's most famous and distinctive buildings"
-}, {
-    id: 3,
-    pic: 'https://source.unsplash.com/3PeSjpLVtLg',
-    countryName: 'NORWAY',
-    destinationPlace: 'Geirangerfjord',
-    mapLink: 'https://www.google.com/maps?q=Geirangerfjord,+Stranda+Municipality,+Norway&rlz=1C5GCEM_enUS954US962&um=1&ie=UTF-8&sa=X&ved=2ahUKEwi_gZachc38AhWYrYkEHeeCDmwQ_AUoAnoECAEQBA',
-    dates: '01 Oct, 2021 - 18 Nov, 2021',
-    description: "The Geiranger Fjord is a fjord in the Sunnmøre region of Møre og Romsdal county, Norway. It is located entirely in the Stranda Municipality."
-}];
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -649,7 +519,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById("root"));
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -671,7 +541,7 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
 var Scheduler = __webpack_require__(3);
-var tracing = __webpack_require__(18);
+var tracing = __webpack_require__(16);
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
@@ -26919,7 +26789,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27223,7 +27093,7 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Er
 
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29564,7 +29434,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29594,7 +29464,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29949,7 +29819,7 @@ exports.unstable_wrap = unstable_wrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29965,7 +29835,7 @@ var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unst
 
 
 /***/ }),
-/* 16 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30619,7 +30489,7 @@ exports.unstable_wrapCallback = unstable_wrapCallback;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30646,16 +30516,16 @@ exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;
 
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
+  module.exports = __webpack_require__(13);
 } else {
-  module.exports = __webpack_require__(14);
+  module.exports = __webpack_require__(12);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))

@@ -1,10 +1,10 @@
 import React from "react";
-
 export default function Nav() {
     return (
-        <nav className="navbar">
-            <img src="../images/globe.png" className="globe--icon" />
-            <span className="navbar--headline">my travel journal.</span>
-        </nav>
+        <div className="navbar">
+            <img src="../images/troll.png" className="meme--icon" />
+            <h3 className="navbar--headline">Meme Generator</h3>
+            <h4 className="course--title">React Course - Project 3</h4>
+        </div>
     )
 }
